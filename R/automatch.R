@@ -95,7 +95,7 @@ automatch <- function(pathname) {
 
   # Adjust column names
   results <- results %>%
-    rename(
+    colnames = c(
       "Smoothing Intensity" = smooth_intens,
       "Baseline Correction" = subtr_bg,
       "Sample Name" = top_result,
