@@ -92,20 +92,22 @@ automatch <- function(pathname) {
       }
     }
   }
-
-  # Adjust column names
-  results <- results %>%
-    colnames = c(
-      "Smoothing Intensity" = smooth_intens,
-      "Baseline Correction" = subtr_bg,
-      "Sample Name" = top_result,
-      "Spectrum Identity" = type,
-      "R-Value" = stringsAsFactors
-    )
-
-  # Sort by highest to lowest R-Value
-  results <- results %>%
-    arrange(desc(`R-Value`))
-
-  return(results)
 }
+
+# Adjust column names
+results <- results %>%
+  rename(
+    "Smoothing Intensity" = smooth_intens,
+    "Baseline Correction" = subtr_bg,
+    "Sample Name" = top_result.sample_name,
+    "Spectrum Identity" = top_result.spectrum_identity,
+    "R-Value" = top_result.rsq,
+    "Organization" = top_result.organization,
+    "Spectrum" = type
+  )
+
+# Sort by highest to lowest R-Value
+results <- results %>%
+  arrange(desc(`R-Value`))
+
+return(results)

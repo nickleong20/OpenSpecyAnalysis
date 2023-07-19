@@ -21,6 +21,13 @@
 #' spectrum_type <- spectrum("testdata.csv")
 #'
 #' @export
+
+# Fetch FTIR library
+get_lib()
+
+# Load FTIR library into global environment
+spec_lib <- load_lib()
+
 spectrum <- function(pathname) {
   spec_data <- read_data(pathname)
   testraman <- match_spec(spec_data, library = spec_lib, which = "raman")
