@@ -1,0 +1,10 @@
+# How it Works
+The package works by providing a collection of functions designed to streamline and simplify the analysis of spectral data in R. The core functionalities include data reading, spectrum type classification, and automated spectrum matching.
+
+1. Data Reading: The `read_data` function serves as a versatile data reader that handles various spectral data file formats, such as CSV, ASP, JDX, SPC, SPA, and 0. When provided with the pathname of a file, the function automatically determines the file's extension and uses the appropriate reading method to load the spectral data into R. This eliminates the need for users to worry about the specific file format and ensures seamless data import for various datasets.
+
+2. Spectrum Type Classification: The `spectrum` function acts as a spectral type classifier. It takes the pathname of a file containing spectral data and analyzes the data using the "OpenSpecy" package. By performing statistical comparisons, the function determines whether the spectrum is of the Raman or FTIR type. This classification is essential as it guides subsequent analyses and allows researchers to choose appropriate methods tailored to the specific spectrum type.
+
+3. Automated Spectrum Matching: The `automatch` function automates the process of spectrum matching. Given the pathname of a file containing spectral data, the function first identifies the spectrum type using the `spectrum` function. It then reads and preprocesses the data, applying techniques such as smoothing and background correction. Next, the function matches the processed spectra with the corresponding library using the "OpenSpecy" package. Matching scores are calculated based on an R-value, and the results are organized in a data frame. By automating this process, researchers can quickly identify the best matches and gain valuable insights from their spectral datasets.
+
+Overall, the package provides an efficient and user-friendly solution for spectral data analysis, allowing researchers to import, classify, and match spectra effortlessly, thus enhancing their ability to extract meaningful information from spectral data with ease.
