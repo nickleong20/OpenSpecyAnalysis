@@ -2,11 +2,12 @@
 library(OpenSpecy)
 
 get_lib()
+
 spec_lib <- load_lib()
 
 # Test if Raman or FTIR
 spectrum <- function(pathname) {
-  spec_data <- spec_data(pathname)  # Call spec_data function with the provided pathname
+  spec_data <- read_data(pathname)  # Call spec_data function with the provided pathname
   testraman <- match_spec(spec_data, library = spec_lib, which = "raman")
   testftir <- match_spec(spec_data, library = spec_lib, which = "ftir")
 

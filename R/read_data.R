@@ -5,7 +5,7 @@ library(OpenSpecy)
 library(dplyr)
 
 # Determine file type
-spec_data <- function(pathname) {
+read_data <- function(pathname) {
   file_extension <- tools::file_ext(pathname)
 
   if (file_extension %in% c("csv", "CSV")) {
