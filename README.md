@@ -33,17 +33,17 @@ data <- read_data("spectra_data.csv")
 spectrum_type <- spectrum("spectra_data.csv")
 ```
 
-4. **Automated Spectrum Matching (Optional):** If your data is classified as either "Raman" or "FTIR," you can proceed with automated spectrum matching using the `automatch` function. This function automates the process of matching your spectrum with existing libraries and provides valuable insights and matches. Example usage:
+4. **a) Automated Spectrum Matching (Optional):** If your data is classified as either "Raman" or "FTIR," you can proceed with automated spectrum matching using the `automatch` function. This function automates the process of matching your spectrum with existing libraries and provides valuable insights and matches. Example usage:
 ```R
 automatch_results <- automatch("spectra_data.csv")
 ```
 
-5. **Select a Specific Dataset (Optional):** If the `automatch` function identifies multiple potential matches for your spectrum, you can use the `find_spec` function to select a specific dataset from the results. All that is needed is the sample name and spectrum type. For example, if you wanted to select sample 5381, that is the Raman spectrum:
+4. **b) Select a Specific Dataset (Optional):** If the `automatch` function identifies multiple potential matches for your spectrum, you can use the `find_spec` function to select a specific dataset from the results. All that is needed is the sample name and spectrum type. For example, if you wanted to select sample 5381, that is the Raman spectrum:
 ```R
 selected_dataset <- find_spec(sample_name == 5381, library = spec_lib, which = "raman")
 ```
 
-6. **Plot Spectrum (Optional):** You can visualize your spectral data using the `plot_spectrum` function. This function reads spectral data from the provided file, applies intensity adjustment, and background subtraction (if provided), and plots the processed spectrum with the wavenumber (cm-1) on the x-axis and intensity on the y-axis. Example usage:
+5. **Plot Spectrum (Optional):** You can visualize your spectral data using the `plot_spectrum` function. This function reads spectral data from the provided file, applies intensity adjustment, and background subtraction (if provided), and plots the processed spectrum with the wavenumber (cm-1) on the x-axis and intensity on the y-axis. Example usage:
 ```R
 # Plot spectrum with default intensity and background factors
 plot_spectrum("spectra_data.csv")
