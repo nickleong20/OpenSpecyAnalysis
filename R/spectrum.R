@@ -14,13 +14,14 @@
 #' The possible values are "Raman", "FTIR", or "Unknown" if the spectrum type cannot be
 #' determined from the file content.
 #'
-#' @importFrom OpenSpecy read_data match_spec
+#' @importFrom OpenSpecy match_spec get_lib
 #'
 #' @examples
 #' # Determine spectrum type for a sample file
 #' spectrum_type <- spectrum("testdata.csv")
 #'
 #' @export
+library(OpenSpecy)
 
 # Fetch FTIR library
 get_lib()

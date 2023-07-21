@@ -23,13 +23,15 @@
 #' data <- read_data("fitr_nitrocellulose.jdx")
 #'
 #' # Read an unsupported file type (will raise an error)
-#' data <- read_data("path/to/unsupported_file.txt")
+#' data <- read_data("Nurdle A.txt")
 #'
 #' @importFrom tools file_ext
 #' @importFrom readr read_csv
 #' @importFrom OpenSpecy read_asp read_jdx read_spc read_spa read_0
 #'
 #' @export
+library(OpenSpecy)
+
 read_data <- function(pathname) {
   file_extension <- tools::file_ext(pathname)
 
