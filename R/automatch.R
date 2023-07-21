@@ -96,7 +96,7 @@ automatch <- function(pathname) {
     }
   }
   # Adjust column names
-  results <- results %>%
+  results_renamed <- results %>%
     rename(
       "Smoothing Intensity" = smooth_intens,
       "Baseline Correction" = subtr_bg,
@@ -108,10 +108,10 @@ automatch <- function(pathname) {
     )
 
   # Sort by highest to lowest R-Value
-  results <- results %>%
+  results_sorted <- results_renamed %>%
     arrange(desc(`R-Value`))
 
-  return(results)
+  print(results_sorted)
 }
 
 
