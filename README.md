@@ -25,7 +25,9 @@ Import the Required Packages: First, make sure you have the necessary packages i
 
 Read and Classify Spectral Data: Use the read_data function to read the spectral data from your file. Provide the pathname argument with the path to your data file (e.g., "spectra_data.csv"). This function will automatically detect the file format and import the data into a data frame. For example:
 
-```data <- read_data("spectra_data.csv")```
+```R
+data <- read_data("spectra_data.csv")
+```
 Determine Spectrum Type: Use the spectrum function to determine the spectrum type (Raman or FTIR) of your data. Provide the pathname argument with the path to your data file. The function will compare the R-squared values for Raman and FTIR spectra to determine the spectrum type with the higher R-squared value. For example:
 R
 Copy code
