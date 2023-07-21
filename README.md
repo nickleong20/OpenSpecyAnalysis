@@ -17,38 +17,42 @@ The package works by providing a collection of functions designed to streamline 
 Overall, the package provides an efficient and user-friendly solution for spectral data analysis, allowing researchers to import, classify, and match spectra effortlessly, thus enhancing their ability to extract meaningful information from spectral data with ease.
 
 ## Getting Started
-How to Use
-The provided R code consists of several functions: read_data, spectrum, automatch, and plot_spectrum. These functions work together to read, classify, and analyze spectral data files, making it easier to gain valuable insights from the data.
+The provided R code consists of several functions: `read_data`, `spectrum`, `automatch`, and `plot_spectrum`. These functions work together to read, classify, and analyze spectral data files, making it easier to gain valuable insights from the data.
 
-Example Workflow:
-Import the Required Packages: First, make sure you have the necessary packages installed. You can install them using install.packages("OpenSpecy") and install.packages("dplyr"). After installation, load the packages in your R session using library(OpenSpecy) and library(dplyr).
+#### Example Workflow:
 
-Read and Classify Spectral Data: Use the read_data function to read the spectral data from your file. Provide the pathname argument with the path to your data file (e.g., "spectra_data.csv"). This function will automatically detect the file format and import the data into a data frame. For example:
+1. **Import the Required Packages:** First, make sure you have the necessary packages installed. You can install them using `install.packages("OpenSpecy")` and `install.packages("dplyr")`. After installation, load the packages in your R session using `library(OpenSpecy)` and `library(dplyr)`.
 
+2. **Read and Classify Spectral Data:** Use the `read_data` function to read the spectral data from your file. Provide the `pathname` argument with the path to your data file (e.g., "spectra_data.csv"). This function will automatically detect the file format and import the data into a data frame. For example:
 ```R
 data <- read_data("spectra_data.csv")
 ```
-Determine Spectrum Type: Use the spectrum function to determine the spectrum type (Raman or FTIR) of your data. Provide the pathname argument with the path to your data file. The function will compare the R-squared values for Raman and FTIR spectra to determine the spectrum type with the higher R-squared value. For example:
-R
-Copy code
+
+3. **Determine Spectrum Type:** Use the `spectrum` function to determine the spectrum type (Raman or FTIR) of your data. Provide the `pathname` argument with the path to your data file. The function will compare the R-squared values for Raman and FTIR spectra to determine the spectrum type with the higher R-squared value. For example:
+```R
 spectrum_type <- spectrum("spectra_data.csv")
-Automated Spectrum Matching (Optional): If your data is classified as either "Raman" or "FTIR," you can proceed with automated spectrum matching using the automatch function. This function automates the process of matching your spectrum with existing libraries and provides valuable insights and matches. Example usage:
-R
-Copy code
+```
+
+4. **Automated Spectrum Matching (Optional):** If your data is classified as either "Raman" or "FTIR," you can proceed with automated spectrum matching using the `automatch` function. This function automates the process of matching your spectrum with existing libraries and provides valuable insights and matches. Example usage:
+```R
 automatch_results <- automatch("spectra_data.csv")
-Select a Specific Dataset (Optional): If the automatch function identifies multiple potential matches for your spectrum, you can use the find_spec function to select a specific dataset from the results. Provide the automatch_results data frame obtained from the previous step and specify the dataset index you want to select. For example, to select the first dataset from the results:
-R
-Copy code
-selected_dataset <- find_spec(automatch_results, index = 1)
-Plot Spectrum (Optional): You can visualize your spectral data using the plot_spectrum function. This function reads spectral data from the provided file, applies intensity adjustment, and background subtraction (if provided), and plots the processed spectrum with the wavenumber (cm-1) on the x-axis and intensity on the y-axis. Example usage:
-R
-Copy code
+```
+
+5. **Select a Specific Dataset (Optional):** If the `automatch` function identifies multiple potential matches for your spectrum, you can use the `find_spec` function to select a specific dataset from the results. All that is needed is the sample name and spectrum type. For example, if you wanted to select sample 5381, that is the Raman spectrum:
+```R
+selected_dataset <- find_spec(sample_name == 5381, library = spec_lib, which = "raman")
+```
+
+6. **Plot Spectrum (Optional):** You can visualize your spectral data using the `plot_spectrum` function. This function reads spectral data from the provided file, applies intensity adjustment, and background subtraction (if provided), and plots the processed spectrum with the wavenumber (cm-1) on the x-axis and intensity on the y-axis. Example usage:
+```R
 # Plot spectrum with default intensity and background factors
 plot_spectrum("spectra_data.csv")
 
 # Plot spectrum with specified intensity and background factors
 plot_spectrum("spectra_data.csv", smoothing_factor = 5, background_factor = 12)
-By following this workflow, you can efficiently read and classify your spectral data, determine the spectrum type, perform automated spectrum matching, and further analyze and visualize the data for meaningful insights. The find_spec function allows you to select a specific dataset from the automated matching results, offering flexibility and control over your spectral data analysis in R.
+```
+
+By following this workflow, you can efficiently read and classify your spectral data, determine the spectrum type, perform automated spectrum matching, and further analyze and visualize the data for meaningful insights. The `find_spec` function allows you to select a specific dataset from the automated matching results, offering flexibility and control over your spectral data analysis in R.
 
 ## Get in Touch
 
