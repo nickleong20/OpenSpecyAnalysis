@@ -35,17 +35,17 @@ library(OpenSpecy)
 read_data <- function(pathname) {
   file_extension <- tools::file_ext(pathname)
 
-  if (file_extension %in% c("csv", "CSV")) {
+  if (grepl("\\.csv$", pathname, ignore.case = T)) {
     data <- read.csv(pathname, header = TRUE, stringsAsFactors = FALSE)
-  } else if (file_extension %in% c("asp", "ASP")) {
+  } else if (grepl("\\.asp$", pathname, ignore.case = T)) {
     data <- OpenSpecy::read_asp(pathname)
-  } else if (file_extension %in% c("jdx", "JDX")) {
+  } else if (grepl("\\.jdx$", pathname, ignore.case = T)) {
     data <- OpenSpecy::read_jdx(pathname)
-  } else if (file_extension %in% c("spc", "SPC")) {
+  } else if (grepl("\\.spc$", pathname, ignore.case = T)) {
     data <- OpenSpecy::read_spc(pathname)
-  } else if (file_extension %in% c("spa", "SPA")) {
+  } else if (grepl("\\.spa$", pathname, ignore.case = T)) {
     data <- OpenSpecy::read_spa(pathname)
-  } else if (file_extension %in% c("0")) {
+  } else if (grepl("\\.0$", pathname, ignore.case = T)) {
     data <- OpenSpecy::read_0(pathname)
   } else {
     # File type not supported
