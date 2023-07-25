@@ -17,6 +17,12 @@ The package works by providing a collection of functions designed to streamline 
 Overall, the package provides an efficient and user-friendly solution for spectral data analysis, allowing researchers to import, classify, and match spectra effortlessly, thus enhancing their ability to extract meaningful information from spectral data with ease.
 
 ## Getting Started
+### Installation
+First, make sure you have the necessary packages installed by executing install.packages("OpenSpecy") and install.packages("dplyr") in your R environment if you haven't done so already. Next, install the package directly from GitHub using the remotes package. To do this, run install.packages("remotes") if you don't have the remotes package installed yet. After that, load the remotes package with library(remotes). Finally, install the package from the GitHub repository using the following command:
+```R
+remotes::install_github("nickleong20/OpenSpecyAnalysis")
+```
+
 The provided R code consists of several functions: `read_data`, `spectrum`, `automatch`, and `plot_spectrum`. These functions work together to read, classify, and analyze spectral data files, making it easier to gain valuable insights from the data.
 
 #### Example Workflow:
