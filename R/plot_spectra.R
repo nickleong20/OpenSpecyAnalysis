@@ -67,3 +67,4 @@ plot_spectrum <- function(pathname, smoothing_factor = NULL, background_factor =
   # Plot the spectrum
   plot(spectrum_proc, main = "Spectral Plot", xlab = "Wavenumber (cm-1)", ylab = "Intensity", type = "l")
 }
+
